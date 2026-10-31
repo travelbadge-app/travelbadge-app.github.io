@@ -1,0 +1,45 @@
+/* TravelBadge site: the app's Airmail palette and type, self-hosted (no requests to anyone else's servers) */
+@font-face { font-family: "Unbounded"; src: url("fonts/Unbounded_800ExtraBold.ttf") format("truetype"); font-weight: 800; font-display: swap; }
+@font-face { font-family: "Figtree"; src: url("fonts/Figtree_400Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Figtree"; src: url("fonts/Figtree_700Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+
+:root {
+  --paper: #EDF0F4; --card: #FFFFFF; --ink: #15203A; --muted: #5E6A80; --line: #D8DEE8; --stamp: #D7263D; --gold-soft: #FBEFD2;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper: #0D1322; --card: #151D31; --ink: #E9EDF5; --muted: #93A0B8; --line: #26304A; --stamp: #FF5468; --gold-soft: #3A2F14; }
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif; }
+/* The airmail edge, as in the app */
+body::before { content: ""; display: block; height: 8px; background: repeating-linear-gradient(-45deg, #D7263D 0 14px, var(--card) 14px 21px, #15203A 21px 35px, var(--card) 35px 42px); }
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 20px 72px; }
+header.site { display: flex; align-items: center; gap: 12px; padding: 24px 0 8px; }
+header.site a { display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
+header.site img { width: 40px; height: 40px; border-radius: 10px; }
+.brand { font: 800 19px/1.2 "Unbounded", system-ui, sans-serif; letter-spacing: -0.01em; }
+nav { margin-left: auto; display: flex; gap: 18px; font-weight: 700; font-size: 15px; }
+nav a { color: var(--muted); text-decoration: none; padding: 8px 0; }
+nav a:hover, nav a[aria-current="page"] { color: var(--ink); }
+
+h1 { font: 800 clamp(28px, 6vw, 40px)/1.15 "Unbounded", system-ui, sans-serif; letter-spacing: -0.02em; margin: 32px 0 12px; }
+h2 { font: 800 21px/1.25 "Unbounded", system-ui, sans-serif; letter-spacing: -0.01em; margin: 40px 0 8px; }
+p, li { max-width: 62ch; }
+a { color: var(--stamp); text-underline-offset: 3px; }
+a:focus-visible { outline: 3px solid var(--stamp); outline-offset: 3px; border-radius: 4px; }
+.lead { font-size: 20px; color: var(--muted); }
+.updated { color: var(--muted); font-size: 15px; }
+.box { background: var(--card); border: 1.5px solid #ADB1BA; border-radius: 18px; box-shadow: 2px 2px 0 rgba(21, 32, 58, 0.14); padding: 18px 20px; margin: 20px 0; }
+@media (prefers-color-scheme: dark) { .box { border-color: #4A5470; box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5); } }
+.box h2 { margin-top: 0; }
+.hero { text-align: center; padding: 28px 0 8px; }
+.hero img { width: 120px; height: 120px; border-radius: 27px; box-shadow: 0 10px 30px rgba(21, 32, 58, 0.25); }
+.hero h1 { margin-top: 24px; }
+.hero p { margin-left: auto; margin-right: auto; }
+.soon { display: inline-block; background: var(--gold-soft); border-radius: 999px; padding: 6px 16px; font-weight: 700; font-size: 15px; }
+ul { padding-left: 22px; }
+li { margin: 6px 0; }
+footer { border-top: 1px solid var(--line); margin-top: 56px; padding-top: 20px; color: var(--muted); font-size: 15px; }
